@@ -14,27 +14,27 @@ Instalação, tipos básicos e operações básicas.
 	- [Instalar Elixir](#instalar-elixir)
 	- [Modo interativo](#modo-interativo)
 - [Tipos Básicos](#tipos)
-	- [Inteiros](#enteros)
+	- [Inteiros](#inteiros)
 	- [Ponto Flutuantes](#ponto-flutuantes)
 	- [Booleanos](#booleanos)
-	- [Atomos](#atomos)
+	- [Átomos](#atomos)
 	- [Strings](#strings)
 - [Operações Básicas](#operaciones-basicas)
 	- [Aritmética](#aritmetica)
 	- [Booleanas](#booleanas)
 	- [Comparação](#comparacao)
-	- [Interpolação de string](#interpolacao-de-string)
-	- [Concatenação de string](#concatenacao-de-string)
+	- [Interpolação de String](#interpolacao-de-string)
+	- [Concatenação de String](#concatenacao-de-string)
 
 ## Instalação
 
 ### Instalar Elixir
 
-As instruções para cada sistema operacional podem ser encontradas em [Elixir-lang.org](http://elixir-lang.org) na aba [Install](http://elixir-lang.org/install.html).
+As instruções para instalação de cada sistema operacional podem ser encontradas em [Elixir-lang.org](http://elixir-lang.org) na aba [Install](http://elixir-lang.org/install.html).
 
 ### Modo Interativo
 
-Elixir vem com `iex`, um console interativo, que nos permite avaliar expressões Elixir.
+Elixir vem com `iex`, um console interativo, que nos permite avaliar expressões em Elixir.
 
 Para iniciar, executamos `iex`:
 
@@ -49,7 +49,9 @@ Para iniciar, executamos `iex`:
 
 ```elixir
 iex> 255
+255
 iex> 0xFF
+255
 ```
 
 O suporte para números binários, octais e hexadecimais também estão inclusos:
@@ -69,9 +71,11 @@ Em Elixir, os ponto flutuantes requerem um decimal depois de pelo menos um dígi
 
 ```elixir
 iex> 3.41
+3.41
 iex> .41
 ** (SyntaxError) iex:2: syntax error before: '.'
 iex> 1.0e-10
+1.0e-10
 ```
 
 
@@ -81,10 +85,12 @@ Elixir suporta `true` e `false` como booleanos; todo valor é verdadeiro com exc
 
 ```elixir
 iex> true
+true
 iex> false
+false
 ```
 
-### Atomos
+### <a name="atomos"></a>Átomos
 
 Um Átomo é uma constante cujo o nome é seu valor, se está familiarizado com Ruby, estes são equivalentes aos Símbolos:
 
@@ -95,7 +101,7 @@ iex> :foo == :bar
 false
 ```
 
-NOTA: Booleanos `true` e `false` são também átomos `:true` e `:false` respectivamente.
+NOTA: Booleanos `true` e `false` também são átomos `:true` e `:false` respectivamente.
 
 ```elixir
 iex> true |> is_atom
@@ -108,7 +114,7 @@ true
 
 ### Strings
 
-As strings em Elixir estão codificadas em utf-8 e estão representadas com aspas duplas:
+As strings em Elixir são codificadas em utf-8 e são representadas com aspas duplas:
 
 ```elixir
 iex> "Hello"
@@ -117,7 +123,7 @@ iex> "dziękuję"
 "dziękuję"
 ```
 
-As strings suportam quebras de linha e sequências de espaço:
+As strings suportam quebras de linha e caracteres de escape:
 
 ```elixir
 iex(9)> "foo
@@ -155,7 +161,7 @@ iex> rem(10, 3)
 
 ### Booleanos
 
-Elixir prover os operadores booleanos: `||`, `&&`, e `!`, estes suportam qualquer tipo:
+Elixir provê os operadores booleanos: `||`, `&&`, e `!`, estes suportam qualquer tipo:
 
 ```elixir
 iex> -20 || true
@@ -213,16 +219,13 @@ iex> 2 === 2.0
 false
 ```
 
-Uma importante caracteristica do Elixir é que
-
-
-Uma característica importante de elixir é que os dois tipos podem ser comparados, isto é particularmente útil para a ordenação. Não precisamos memorizar a ordem de classificação, mas é importante estar ciente de que:
+Uma característica importante de Elixir é que quaisquer dois tipos podem ser comparados, isto é particularmente útil em ordenação. Não precisamos memorizar a ordem de classificação, mas é importante estar ciente de que:
 
 ```elixir
 number < atom < reference < functions < port < pid < tuple < maps < list < bitstring
 ```
 
-Isso pode levar a algumas comparações interessantes e válidas, você pode não encontrar em outras linguagens:
+Isso pode levar a algumas comparações interessantes e válidas, que você pode não encontrar em outras linguagens:
 
 ```elixir
 iex> :hello > 999
